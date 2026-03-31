@@ -106,11 +106,9 @@ const generateQRCode = () => {
     const qrContainer = document.getElementById('qrcode');
     if (qrContainer && typeof QRCode !== 'undefined') {
         const vcard = `BEGIN:VCARD
-VERSION:3.0
 FN:RC Service
-ORG:Non Résonance Climatique
-TEL;TYPE=CELL:0820444758
-TEL;TYPE=CELL:0993032484
+TEL:0820444758
+TEL:0993032484
 EMAIL:contact@rc-service.com
 END:VCARD`;
 

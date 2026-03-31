@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 240 10% 3.9%;
+        --card: 0 0% 100%;
+        --card-foreground: 240 10% 3.9%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 240 10% 3.9%;
+        --primary: 240 5.9% 10%;
+        --primary-foreground: 0 0% 98%;
+        --secondary: 240 4.8% 95.9%;
+        --secondary-foreground: 240 5.9% 10%;
+        --muted: 240 4.8% 95.9%;
+        --muted-foreground: 240 3.8% 46.1%;
+        --accent: 240 4.8% 95.9%;
+        --accent-foreground: 240 5.9% 10%;
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 5.9% 90%;
+        --input: 240 5.9% 90%;
+        --ring: 240 5.9% 10%;
+        --radius: 0.5rem;
+    }
+
+    .dark {
+        --background: 240 10% 3.9%;
+        --foreground: 0 0% 98%;
+        --card: 240 10% 3.9%;
+        --card-foreground: 0 0% 98%;
+        --popover: 240 10% 3.9%;
+        --popover-foreground: 0 0% 98%;
+        --primary: 0 0% 98%;
+        --primary-foreground: 240 5.9% 10%;
+        --secondary: 240 3.7% 15.9%;
+        --secondary-foreground: 0 0% 98%;
+        --muted: 240 3.7% 15.9%;
+        --muted-foreground: 240 5% 64.9%;
+        --accent: 240 3.7% 15.9%;
+        --accent-foreground: 0 0% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 240 3.7% 15.9%;
+        --input: 240 3.7% 15.9%;
+        --ring: 240 4.9% 83.9%;
+    }
+}
+
+@layer components {
+
+    /* Tailark-like Megamenu Styling */
+    .megamenu {
+        @apply invisible absolute left-1/2 top-full z-50 mt-2 -translate-x-1/2 rounded-xl border border-border bg-card/95 p-6 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:opacity-100;
+    }
+
+    .nav-pill {
+        @apply flex items-center gap-6 rounded-full border border-border bg-card/60 px-6 py-2 shadow-sm backdrop-blur-lg;
+    }
+
+    .nav-item {
+        @apply text-sm font-medium text-muted-foreground transition-colors hover:text-foreground;
+    }
+
+    .megamenu-item {
+        @apply flex items-start gap-4 rounded-lg p-3 transition-colors hover:bg-accent;
+    }
+
+    .icon-box {
+        @apply flex h-10 w-10 items-center justify-center rounded-lg border border-border bg-background shadow-sm;
+    }
+
+    /* Diagnostic Card Premium Styles */
+    .premium-card {
+        @apply relative rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 active:scale-[0.98];
+    }
+
+    .option-pill {
+        @apply cursor-pointer rounded-full border border-border bg-background px-4 py-1.5 text-sm font-medium text-muted-foreground transition-all hover:border-foreground hover:text-foreground;
+    }
+
+    .option-pill.active {
+        @apply border-primary bg-primary text-primary-foreground;
+    }
+}
+
+body {
+    @apply bg-background text-foreground;
+}

@@ -125,5 +125,45 @@ END:VCARD`;
     }
 };
 
-// Initialize building QR on load
-window.addEventListener('load', generateQRCode);
+// Email Submission Logic
+const submitViaEmail = () => {
+    if (!validateClientInfo()) return;
+
+    const name = document.getElementById('client-name').value;
+    const phone = document.getElementById('client-phone').value;
+    const address = document.getElementById('client-address').value;
+
+    // Collect all selected options
+    const selectedOptions = [];
+    document.querySelectorAll('.option-pill.active').forEach(pill => {
+        const category = pill.closest('article')?.querySelector('h2')?.textContent || "Autre";
+        selectedOptions.push(`[${category}] ${pill.textContent}`);
+    });
+
+    const body = `Bonjour,
+    
+Je souhaite demander un diagnostic technique.
+
+--- INFORMATIONS CLIENT ---
+Nom: ${name}
+Téléphone: ${phone}
+Adresse: ${address}
+
+--- BESOINS IDENTIFIÉS ---
+${selectedOptions.length > 0 ? selectedOptions.join('\n') : "Aucune option spécifique sélectionnée."}
+
+Merci de me recontacter rapidement.`;
+
+    const subject = `Demande de Diagnostic - ${name}`;
+    const mailtoUrl = `mailto:contact@rc-service.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoUrl;
+};
+
+// Event Listeners for Submission
+document.getElementById('submit-diagnostic-email')?.addEventListener('click', submitViaEmail);
+
+// Initialize everything on load
+window.addEventListener('load', () => {
+    generateQRCode();
+});

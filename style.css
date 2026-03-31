@@ -74,7 +74,7 @@
 
     /* Diagnostic Card Premium Styles */
     .premium-card {
-        @apply relative rounded-2xl border border-border bg-card p-6 shadow-sm transition-all hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 active:scale-[0.98];
+        @apply relative rounded-[2.5rem] border border-border bg-card p-10 shadow-sm transition-all hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/5 active:scale-[0.99];
     }
 
     .option-pill {

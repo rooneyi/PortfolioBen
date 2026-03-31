@@ -120,7 +120,7 @@ END:VCARD`;
             height: 128,
             colorDark: "#000000",
             colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
+            correctLevel: QRCode.CorrectLevel.L
         });
     }
 };
@@ -163,7 +163,9 @@ Merci de me recontacter rapidement.`;
 // Event Listeners for Submission
 document.getElementById('submit-diagnostic-email')?.addEventListener('click', submitViaEmail);
 
-// Initialize everything on load
-window.addEventListener('load', () => {
+// Initialize everything on load or immediately if already loaded
+if (document.readyState === 'complete') {
     generateQRCode();
-});
+} else {
+    window.addEventListener('load', generateQRCode);
+}

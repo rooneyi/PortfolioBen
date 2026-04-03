@@ -131,11 +131,18 @@ const submitViaEmail = () => {
     const phone = document.getElementById('client-phone').value;
     const address = document.getElementById('client-address').value;
 
-    // Collect all selected options
+    // Collect all selected options (ancienne sélection par cartes)
     const selectedOptions = [];
     document.querySelectorAll('.option-pill.active').forEach(pill => {
         const category = pill.closest('article')?.querySelector('h2')?.textContent || "Autre";
         selectedOptions.push(`[${category}] ${pill.textContent}`);
+    });
+
+    // Collect selected FAQ questions
+    const selectedFaqs = [];
+    document.querySelectorAll('.faq-question.selected').forEach(item => {
+        const categoryTitle = item.closest('.faq-panel')?.querySelector('h3')?.textContent || 'FAQ';
+        selectedFaqs.push(`[${categoryTitle}] ${item.textContent.trim()}`);
     });
 
     const body = `Bonjour,
@@ -149,6 +156,9 @@ Adresse: ${address}
 
 --- BESOINS IDENTIFIÉS ---
 ${selectedOptions.length > 0 ? selectedOptions.join('\n') : "Aucune option spécifique sélectionnée."}
+
+--- PROBLÈMES SÉLECTIONNÉS DANS LES FAQS ---
+${selectedFaqs.length > 0 ? selectedFaqs.join('\n') : "Aucun problème sélectionné dans les FAQs."}
 
 Merci de me recontacter rapidement.`;
 
@@ -183,6 +193,19 @@ if (faqCategoryButtons.length && faqPanels.length) {
         });
     });
 }
+
+// Make FAQ questions selectable
+const initFaqSelectableQuestions = () => {
+    const faqQuestions = document.querySelectorAll('.faq-panel ol li');
+    faqQuestions.forEach((li) => {
+        li.classList.add('faq-question');
+        li.addEventListener('click', () => {
+            li.classList.toggle('selected');
+        });
+    });
+};
+
+initFaqSelectableQuestions();
 
 // Initialize everything on load or immediately if already loaded
 if (document.readyState === 'complete') {

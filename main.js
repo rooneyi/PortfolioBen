@@ -145,6 +145,17 @@ const submitViaEmail = () => {
         selectedFaqs.push(`[${categoryTitle}] ${item.textContent.trim()}`);
     });
 
+    // Collect written answers on marked FAQ questions
+    const detailedAnswers = [];
+    document.querySelectorAll('.faq-answer').forEach(input => {
+        const value = input.value.trim();
+        if (!value) return;
+        const li = input.closest('li');
+        const questionText = li ? li.childNodes[0].textContent.trim() : 'Question';
+        const categoryTitle = li?.closest('.faq-panel')?.querySelector('h3')?.textContent || 'FAQ';
+        detailedAnswers.push(`[${categoryTitle}] ${questionText} -> ${value}`);
+    });
+
     const body = `Bonjour,
     
 Je souhaite demander un diagnostic technique.
@@ -159,6 +170,9 @@ ${selectedOptions.length > 0 ? selectedOptions.join('\n') : "Aucune option spéc
 
 --- PROBLÈMES SÉLECTIONNÉS DANS LES FAQS ---
 ${selectedFaqs.length > 0 ? selectedFaqs.join('\n') : "Aucun problème sélectionné dans les FAQs."}
+
+--- RÉPONSES DÉTAILLÉES ---
+${detailedAnswers.length > 0 ? detailedAnswers.join('\n') : "Aucune réponse écrite fournie."}
 
 Merci de me recontacter rapidement.`;
 
@@ -199,6 +213,21 @@ const initFaqSelectableQuestions = () => {
     const faqQuestions = document.querySelectorAll('.faq-panel ol li');
     faqQuestions.forEach((li) => {
         li.classList.add('faq-question');
+
+        // If this question expects a written answer, inject an input field
+        if (li.dataset.answer === 'text') {
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.placeholder = 'Votre réponse...';
+            input.className = 'faq-answer mt-2 w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary outline-none';
+
+            // Prevent clicks inside the input from toggling selection on the whole question
+            input.addEventListener('click', (e) => e.stopPropagation());
+            input.addEventListener('keydown', (e) => e.stopPropagation());
+
+            li.appendChild(input);
+        }
+
         li.addEventListener('click', () => {
             li.classList.toggle('selected');
         });

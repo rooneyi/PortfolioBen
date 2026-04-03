@@ -115,3 +115,11 @@
 body {
     @apply bg-background text-foreground;
 }
+
+.tiled-bg {
+    /* Fond carrelé discret en ton bleu/gris, à appliquer seulement où nécessaire */
+    background-image:
+        linear-gradient(to right, hsl(var(--border) / 0.6) 1px, transparent 1px),
+        linear-gradient(to bottom, hsl(var(--border) / 0.6) 1px, transparent 1px);
+    background-size: 40px 40px;
+}

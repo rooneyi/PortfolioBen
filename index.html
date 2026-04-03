@@ -368,6 +368,227 @@
                     messagerie s'ouvrira avec le récapitulatif de vos besoins.</p>
             </div>
         </div>
+
+        <!-- FAQ Section -->
+        <section id="faqs" class="max-w-7xl mx-auto pt-10 pb-24">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">FAQs de pré-diagnostic</h2>
+                <p class="text-sm md:text-base text-muted-foreground">
+                    Choisissez une catégorie puis suivez les questions dans l'ordre. Cela permet de ne rien oublier
+                    lors de l'appel avec le client.
+                </p>
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="flex flex-wrap justify-center gap-3 mb-10">
+                <button class="faq-category active" data-category="froid-primaire">Froid 
+                    &ndash; Questions primaires</button>
+                <button class="faq-category" data-category="froid-secondaire">Froid 
+                    &ndash; Questions secondaires</button>
+                <button class="faq-category" data-category="clim-installation">Climatisation 
+                    &ndash; Projet d'installation</button>
+                <button class="faq-category" data-category="clim-panne">Climatisation 
+                    &ndash; Panne / SAV</button>
+                <button class="faq-category" data-category="elec">Installation électrique</button>
+                <button class="faq-category" data-category="soudure">Soudure / Métallerie</button>
+                <button class="faq-category" data-category="auto-clim">Climatisation auto</button>
+            </div>
+
+            <!-- FAQ Panels -->
+            <div class="space-y-10">
+                <!-- Froid - Questions primaires -->
+                <article class="faq-panel premium-card" data-category="froid-primaire">
+                    <h3 class="text-2xl font-bold mb-2">Questions primaires &ndash; Congélateur / Frigo</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Questions de base à poser dès le premier contact
+                        avec le client.</p>
+                    <ol class="space-y-2 text-sm text-left list-decimal list-inside">
+                        <li>Depuis combien de temps avez-vous acheté ce congélateur ou frigo&nbsp;?</li>
+                        <li>Quel est le problème principal que vous constatez&nbsp;?</li>
+                        <li>Le congélateur / frigo ne refroidit-il plus du tout&nbsp;?</li>
+                        <li>Est-ce qu'il ne démarre pas quand vous le branchez&nbsp;?</li>
+                        <li>Entendez-vous le bruit du moteur&nbsp;? Combien de temps fonctionne-t-il avant de
+                            s'arrêter&nbsp;?</li>
+                        <li>Fait-il trop de glace ou au contraire très peu&nbsp;?</li>
+                        <li>Quand vous branchez l'appareil, est-ce qu'il s'allume normalement&nbsp;?</li>
+                        <li>Y a-t-il de la lumière à l'intérieur quand vous ouvrez la porte&nbsp;?</li>
+                        <li>Entendez-vous le compresseur (moteur) tourner ou pas du tout&nbsp;?</li>
+                        <li>Est-ce que le froid est présent à l'intérieur de l'appareil&nbsp;?</li>
+                        <li>Les aliments sont-ils encore bien congelés ou commencent-ils à décongeler&nbsp;?</li>
+                        <li>Le froid vous semble-t-il faible ou totalement absent&nbsp;?</li>
+                        <li>Depuis quand le problème a-t-il commencé (aujourd'hui, quelques jours, plus longtemps)&nbsp;?</li>
+                        <li>Entendez-vous un bruit anormal&nbsp;? (bourdonnement fort, claquement, ou silence
+                            complet)</li>
+                        <li>Le compresseur (moteur) a-t-il déjà été changé auparavant&nbsp;?</li>
+                        <li>Un autre technicien est-il déjà intervenu sur cet appareil&nbsp;?</li>
+                        <li>Après le branchement, voyez-vous de la glace ou de l'eau qui coule autour ou derrière
+                            l'appareil&nbsp;?</li>
+                        <li>Quand a eu lieu le dernier entretien ou nettoyage complet du congélateur / frigo&nbsp;?</li>
+                        <li>Y a-t-il eu récemment une coupure de courant ou un problème électrique dans la maison&nbsp;?</li>
+                    </ol>
+                </article>
+
+                <!-- Froid - Questions secondaires -->
+                <article class="faq-panel premium-card hidden" data-category="froid-secondaire">
+                    <h3 class="text-2xl font-bold mb-2">Questions secondaires &ndash; Congélateur / Frigo</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Questions complémentaires pour préciser le
+                        diagnostic.</p>
+                    <ol class="space-y-2 text-sm text-left list-decimal list-inside">
+                        <li>Quelqu'un a-t-il déjà réparé ou touché à l'appareil récemment&nbsp;?</li>
+                        <li>Y a-t-il déjà eu une intervention précédente (changement de pièce, recharge de gaz, etc.)&nbsp;?</li>
+                        <li>Le congélateur ou frigo a-t-il subi une surtension ou un problème électrique connu&nbsp;?</li>
+                        <li>L'appareil est-il tombé ou a-t-il été déplacé récemment&nbsp;?</li>
+                        <li>Depuis combien d'années utilisez-vous ce congélateur / frigo&nbsp;?</li>
+                        <li>Si la réparation est trop chère, êtes-vous prêt à remplacer l'appareil&nbsp;?</li>
+                    </ol>
+                </article>
+
+                <!-- Climatisation - Installation / Dimensionnement -->
+                <article class="faq-panel premium-card hidden" data-category="clim-installation">
+                    <h3 class="text-2xl font-bold mb-2">Climatisation &ndash; Projet d'installation</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Questions pour dimensionner correctement une
+                        nouvelle installation de climatisation.</p>
+                    <ol class="space-y-2 text-sm text-left list-decimal list-inside">
+                        <li>Quel est le type de bâtiment&nbsp;? (maison, bureau, magasin, etc.)</li>
+                        <li>Où se situe le bâtiment&nbsp;? (ville, commune, quartier)</li>
+                        <li>Quelle est la surface de la ou des pièces à climatiser (en m²)&nbsp;?</li>
+                        <li>Quelle est la hauteur sous plafond moyenne&nbsp;?</li>
+                        <li>Souhaitez-vous seulement refroidir ou aussi chauffer les pièces&nbsp;?</li>
+                        <li>Combien de pièces doivent être climatisées au total&nbsp;?</li>
+                        <li>Quelle température intérieure souhaitez-vous en moyenne&nbsp;?</li>
+                        <li>L'utilisation sera-t-elle quotidienne ou seulement occasionnelle&nbsp;?</li>
+                        <li>La pièce est-elle très exposée au soleil&nbsp;? (orientation, grandes baies vitrées, etc.)</li>
+                        <li>Y a-t-il beaucoup de fenêtres dans la pièce&nbsp;?</li>
+                        <li>Les murs sont-ils isolés ou non (construction légère, brique, béton, etc.)&nbsp;?</li>
+                        <li>Y a-t-il des appareils qui produisent de la chaleur&nbsp;? (ordinateurs, machines,
+                            serveurs...)</li>
+                        <li>Le câblage électrique pour la clim est-il déjà prêt ou à prévoir&nbsp;?</li>
+                        <li>Y a-t-il des contraintes particulières pour la pose (mur difficile, étage élevé, accès
+                            limité...)&nbsp;?</li>
+                        <li>Avez-vous une marque ou un type préféré&nbsp;? (split, inverter, VRV, etc.)</li>
+                        <li>Le niveau de bruit est-il un critère très important pour vous&nbsp;?</li>
+                        <li>Souhaitez-vous des options spécifiques&nbsp;? (télécommande, Wi-Fi, programmation
+                            horaire...)</li>
+                        <li>Préférez-vous un modèle très silencieux ou discret visuellement&nbsp;?</li>
+                    </ol>
+                </article>
+
+                <!-- Climatisation - Panne / SAV -->
+                <article class="faq-panel premium-card hidden" data-category="clim-panne">
+                    <h3 class="text-2xl font-bold mb-2">Climatisation &ndash; Description de la panne</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Questions pour diagnostiquer une climatisation qui
+                        ne fonctionne pas correctement.</p>
+                    <ol class="space-y-2 text-sm text-left list-decimal list-inside">
+                        <li>Quel est exactement le problème&nbsp;? (ne refroidit plus, ne démarre pas, fait du bruit,&nbsp;etc.)</li>
+                        <li>Depuis quand la panne a-t-elle commencé&nbsp;? (d'un coup ou progressivement)</li>
+                        <li>Est-ce que l'appareil fonctionne parfois ou plus du tout&nbsp;?</li>
+                        <li>L'appareil s'allume-t-il correctement quand vous le mettez en marche&nbsp;?</li>
+                        <li>Y a-t-il eu récemment une coupure de courant ou un problème électrique&nbsp;?</li>
+                        <li>Le disjoncteur (teko) saute-t-il lorsque vous allumez la clim&nbsp;?</li>
+                        <li>Les autres appareils électriques de la maison fonctionnent-ils normalement&nbsp;?</li>
+                        <li>Le froid est-il moins puissant qu'avant&nbsp;? Ou complètement absent&nbsp;?</li>
+                        <li>Combien de temps la clim met-elle pour refroidir la pièce par rapport à avant&nbsp;?</li>
+                        <li>La température affichée sur la télécommande correspond-elle à la réalité ressentie&nbsp;?</li>
+                        <li>Entendez-vous des bruits inhabituels&nbsp;? (cliquetis, vibrations, sifflement...)</li>
+                        <li>L'unité extérieure fait-elle un bruit anormal&nbsp;?</li>
+                        <li>La clim s'arrête-t-elle et redémarre-t-elle très souvent&nbsp;?</li>
+                        <li>Y a-t-il de l'eau qui coule de l'unité intérieure&nbsp;?</li>
+                        <li>Voyez-vous du givre ou de la glace sur les tuyaux ou les raccords&nbsp;?</li>
+                        <li>Quand a eu lieu le dernier entretien complet de la clim&nbsp;?</li>
+                        <li>Les filtres sont-ils nettoyés régulièrement&nbsp;?</li>
+                        <li>L'appareil a-t-il déjà été réparé auparavant&nbsp;?</li>
+                        <li>Une recharge de gaz a-t-elle été faite récemment&nbsp;?</li>
+                        <li>La clim fonctionne-t-elle en continu pendant de longues heures&nbsp;?</li>
+                        <li>La pièce est-elle bien fermée (portes et fenêtres) quand la clim fonctionne&nbsp;?</li>
+                        <li>Y a-t-il eu des changements récents dans la pièce (nouveaux appareils, cloison, rideaux
+                            épais...)&nbsp;?</li>
+                        <li>Où est installée l'unité extérieure&nbsp;? (balcon, toit, façade...)</li>
+                        <li>Est-elle exposée directement au soleil ou à beaucoup de poussière&nbsp;?</li>
+                        <li>Y a-t-il des obstacles qui bloquent la circulation de l'air autour de l'unité
+                            extérieure&nbsp;?</li>
+                        <li>La distance entre l'unité intérieure et l'unité extérieure a-t-elle été modifiée un jour&nbsp;?</li>
+                        <li>Y a-t-il un code erreur affiché sur l'unité ou la télécommande&nbsp;?</li>
+                        <li>Un voyant clignote-t-il sur l'appareil&nbsp;?</li>
+                        <li>La télécommande fonctionne-t-elle correctement (piles, portée, boutons)&nbsp;?</li>
+                    </ol>
+                </article>
+
+                <!-- Installation électrique -->
+                <article class="faq-panel premium-card hidden" data-category="elec">
+                    <h3 class="text-2xl font-bold mb-2">Questions primaires &ndash; Installation électrique</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Questions pour établir un devis ou vérifier une
+                        installation électrique.</p>
+                    <ol class="space-y-2 text-sm text-left list-decimal list-inside">
+                        <li>Quel est le type de bâtiment&nbsp;? (maison, boutique, bureau, chantier...)</li>
+                        <li>S'agit-il d'une construction neuve ou d'une rénovation&nbsp;?</li>
+                        <li>Quelle est la surface approximative du bâtiment&nbsp;?</li>
+                        <li>Que souhaitez-vous installer exactement&nbsp;? (prises, lumières, tableau électrique...)</li>
+                        <li>Combien de prises électriques désirez-vous environ&nbsp;?</li>
+                        <li>Avez-vous besoin d'un nouveau compteur ou d'une extension de puissance&nbsp;?</li>
+                        <li>Quelle puissance électrique souhaitez-vous&nbsp;? (faible, moyenne, forte &ndash; en KVA si
+                            connu)</li>
+                        <li>Utilisez-vous des appareils puissants&nbsp;? (climatisation, congélateur, machines,
+                            moteurs...)</li>
+                        <li>Le tableau électrique existe-t-il déjà ou faut-il le créer&nbsp;?</li>
+                        <li>Les murs sont-ils déjà finis (peinture, carrelage) ou encore en construction&nbsp;?</li>
+                        <li>Les pièces à alimenter sont-elles proches les unes des autres ou très éloignées&nbsp;?</li>
+                        <li>Souhaitez-vous un passage de câbles visible (goulottes) ou encastré dans les murs&nbsp;?</li>
+                        <li>Pour les prises uniquement :
+                            Type de bâtiment, nombre de prises/lumières, état actuel de l'installation, puissance
+                            demandée.</li>
+                    </ol>
+                </article>
+
+                <!-- Soudure / Métallerie -->
+                <article class="faq-panel premium-card hidden" data-category="soudure">
+                    <h3 class="text-2xl font-bold mb-2">Questions pour un devis &ndash; Soudure</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Questions pour préparer un devis précis en
+                        soudure et ouvrages métalliques.</p>
+                    <ol class="space-y-2 text-sm text-left list-decimal list-inside">
+                        <li>Quel type de travail de soudure souhaitez-vous&nbsp;? (porte, grille, portail, charpente...)</li>
+                        <li>Est-ce un travail neuf ou une réparation d'un élément existant&nbsp;?</li>
+                        <li>Avez-vous un modèle, un dessin ou une photo de ce que vous voulez&nbsp;?</li>
+                        <li>Quelles sont les dimensions approximatives&nbsp;? (hauteur, largeur, épaisseur)</li>
+                        <li>Quel matériau souhaitez-vous utiliser&nbsp;? (fer, acier, autre)</li>
+                        <li>Fournissez-vous le matériel vous-même ou doit-il être inclus dans le devis&nbsp;?</li>
+                        <li>Souhaitez-vous une finition avec peinture ou seulement un traitement anti-rouille&nbsp;?</li>
+                        <li>Le travail doit-il être simple ou décoratif (motifs, design spécial)&nbsp;?</li>
+                        <li>Quel niveau de finition recherchez-vous&nbsp;? (standard ou haut de gamme)</li>
+                        <li>Le lieu de travail est-il facilement accessible pour amener le matériel&nbsp;?</li>
+                        <li>Pour quand souhaitez-vous que le travail soit terminé&nbsp;?</li>
+                        <li>Est-ce une urgence ou un travail normal sans délai particulier&nbsp;?</li>
+                    </ol>
+                </article>
+
+                <!-- Climatisation auto -->
+                <article class="faq-panel premium-card hidden" data-category="auto-clim">
+                    <h3 class="text-2xl font-bold mb-2">Diagnostic &ndash; Climatisation Auto</h3>
+                    <p class="text-sm text-muted-foreground mb-4">Questions pour comprendre la panne de la
+                        climatisation d'un véhicule.</p>
+                    <ol class="space-y-2 text-sm text-left list-decimal list-inside">
+                        <li>Quel est le problème exact de la clim auto&nbsp;? (pas de froid, faible froid, ne
+                            s'allume pas...)</li>
+                        <li>Depuis quand la panne a-t-elle commencé&nbsp;?</li>
+                        <li>La clim fonctionne-t-elle parfois ou jamais&nbsp;?</li>
+                        <li>Quand vous allumez la clim, le ventilateur souffle-t-il de l'air&nbsp;?</li>
+                        <li>L'air qui sort est-il chaud, tiède ou froid&nbsp;?</li>
+                        <li>La clim s'allume-t-elle normalement au tableau de bord&nbsp;?</li>
+                        <li>Entendez-vous un bruit particulier quand la clim s'active&nbsp;?</li>
+                        <li>Entendez-vous un clic au moment où la clim devrait démarrer&nbsp;?</li>
+                        <li>Le compresseur de clim semble-t-il s'enclencher&nbsp;?</li>
+                        <li>Voyez-vous une fuite d'eau ou d'huile sous la voiture quand la clim tourne&nbsp;?</li>
+                        <li>Percevez-vous une odeur étrange ou du gaz autour de la clim&nbsp;?</li>
+                        <li>La clim a-t-elle déjà été réparée auparavant&nbsp;?</li>
+                        <li>Le gaz de clim a-t-il déjà été rechargé&nbsp;?</li>
+                        <li>Le compresseur de clim a-t-il déjà été remplacé&nbsp;?</li>
+                        <li>Utilisez-vous la clim très souvent ou seulement de temps en temps&nbsp;?</li>
+                        <li>Le problème apparaît-il seulement en roulant, seulement à l'arrêt ou dans les deux cas&nbsp;?</li>
+                        <li>La voiture chauffe-t-elle beaucoup (température moteur élevée) lorsqu'elle roule&nbsp;?</li>
+                        <li>Quel type de véhicule est concerné&nbsp;?
+                            (petite voiture, voiture moyenne, SUV/4x4, camion ou bus)</li>
+                    </ol>
+                </article>
+            </div>
+        </section>
     </main>
 
     <footer class="border-t border-border py-20 bg-secondary/30">

@@ -161,6 +161,29 @@ Merci de me recontacter rapidement.`;
 // Event Listeners for Submission
 document.getElementById('submit-diagnostic-email')?.addEventListener('click', submitViaEmail);
 
+// FAQ Category Switching
+const faqCategoryButtons = document.querySelectorAll('.faq-category');
+const faqPanels = document.querySelectorAll('.faq-panel');
+
+if (faqCategoryButtons.length && faqPanels.length) {
+    faqCategoryButtons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-category');
+
+            faqCategoryButtons.forEach((b) => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            faqPanels.forEach((panel) => {
+                if (panel.getAttribute('data-category') === target) {
+                    panel.classList.remove('hidden');
+                } else {
+                    panel.classList.add('hidden');
+                }
+            });
+        });
+    });
+}
+
 // Initialize everything on load or immediately if already loaded
 if (document.readyState === 'complete') {
     generateQRCode();

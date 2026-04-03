@@ -213,20 +213,18 @@ const initFaqSelectableQuestions = () => {
     const faqQuestions = document.querySelectorAll('.faq-panel ol li');
     faqQuestions.forEach((li) => {
         li.classList.add('faq-question');
+        
+        // Inject an input field under every question to permettre une réponse écrite
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Votre réponse...';
+        input.className = 'faq-answer mt-2 w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary outline-none';
 
-        // If this question expects a written answer, inject an input field
-        if (li.dataset.answer === 'text') {
-            const input = document.createElement('input');
-            input.type = 'text';
-            input.placeholder = 'Votre réponse...';
-            input.className = 'faq-answer mt-2 w-full bg-background border border-border rounded-xl px-3 py-2 text-xs focus:ring-2 focus:ring-primary outline-none';
+        // Prevent clicks inside the input from toggling selection on the whole question
+        input.addEventListener('click', (e) => e.stopPropagation());
+        input.addEventListener('keydown', (e) => e.stopPropagation());
 
-            // Prevent clicks inside the input from toggling selection on the whole question
-            input.addEventListener('click', (e) => e.stopPropagation());
-            input.addEventListener('keydown', (e) => e.stopPropagation());
-
-            li.appendChild(input);
-        }
+        li.appendChild(input);
 
         li.addEventListener('click', () => {
             li.classList.toggle('selected');

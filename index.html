@@ -165,66 +165,8 @@
         </section>
 
         <div id="diagnostics" class="max-w-7xl mx-auto pb-32">
-            <!-- Client Info Form -->
-            <div id="client-info" class="max-w-2xl mx-auto premium-card border-primary/30 bg-primary/5 scroll-mt-32">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
-                    <div class="flex items-center gap-4">
-                        <div
-                            class="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20">
-                            <i data-lucide="send" class="h-6 w-6"></i>
-                        </div>
-                        <div>
-                            <h2 class="text-2xl font-bold">Finaliser mon diagnostic</h2>
-                            <p class="text-xs text-muted-foreground uppercase tracking-widest font-bold">Vos coordonnées
-                                pour vous recontacter</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                    <div class="space-y-2">
-                        <label class="text-sm font-semibold ml-1">Nom complet</label>
-                        <div class="relative">
-                            <i data-lucide="user"
-                                class="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"></i>
-                            <input type="text" id="client-name"
-                                class="w-full bg-background border-border rounded-2xl pl-11 pr-4 py-4 text-sm focus:ring-2 focus:ring-primary outline-none transition-all shadow-sm"
-                                placeholder="Ex: Jean Dupont">
-                        </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-sm font-semibold ml-1">Téléphone / WhatsApp</label>
-                        <div class="relative">
-                            <i data-lucide="phone"
-                                class="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"></i>
-                            <input type="tel" id="client-phone"
-                                class="w-full bg-background border-border rounded-2xl pl-11 pr-4 py-4 text-sm focus:ring-2 focus:ring-primary outline-none transition-all shadow-sm"
-                                placeholder="Ex: +243 082 044 4758">
-                        </div>
-                    </div>
-                    <div class="md:col-span-2 space-y-2">
-                        <label class="text-sm font-semibold ml-1">Adresse ou Lieu d'intervention</label>
-                        <div class="relative">
-                            <i data-lucide="map-pin"
-                                class="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"></i>
-                            <input type="text" id="client-address"
-                                class="w-full bg-background border-border rounded-2xl pl-11 pr-4 py-4 text-sm focus:ring-2 focus:ring-primary outline-none transition-all shadow-sm"
-                                placeholder="Ex: Gombe, Avenue de la justice N°...">
-                        </div>
-                    </div>
-                </div>
-
-                <button id="submit-diagnostic-email"
-                    class="w-full py-5 bg-primary text-primary-foreground rounded-2xl font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-3">
-                    Envoyer ma demande par Email <i data-lucide="mail" class="h-5 w-5"></i>
-                </button>
-                <p class="text-[10px] text-center text-muted-foreground mt-4 italic">En cliquant, votre application de
-                    messagerie s'ouvrira avec le récapitulatif de vos besoins.</p>
-            </div>
-        </div>
-
         <!-- FAQ Section -->
-        <section id="faqs" class="max-w-7xl mx-auto pt-10 pb-24">
+        <section id="faqs" class="pt-10 pb-16">
             <div class="max-w-3xl mx-auto text-center mb-10">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">FAQs de pré-diagnostic</h2>
                 <p class="text-sm md:text-base text-muted-foreground">
@@ -443,6 +385,64 @@
                 </article>
             </div>
         </section>
+
+        <!-- Contact Section -->
+        <section id="client-info" class="max-w-2xl mx-auto premium-card border-primary/30 bg-primary/5 scroll-mt-32">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+                <div class="flex items-center gap-4">
+                    <div
+                        class="h-12 w-12 bg-primary rounded-2xl flex items-center justify-center text-primary-foreground shadow-lg shadow-primary/20">
+                        <i data-lucide="send" class="h-6 w-6"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Finaliser mon diagnostic</h2>
+                        <p class="text-xs text-muted-foreground uppercase tracking-widest font-bold">Vos coordonnées
+                            pour vous recontacter</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold ml-1">Nom complet</label>
+                    <div class="relative">
+                        <i data-lucide="user"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"></i>
+                        <input type="text" id="client-name"
+                            class="w-full bg-background border-border rounded-2xl pl-11 pr-4 py-4 text-sm focus:ring-2 focus:ring-primary outline-none transition-all shadow-sm"
+                            placeholder="Ex: Jean Dupont">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-sm font-semibold ml-1">Téléphone / WhatsApp</label>
+                    <div class="relative">
+                        <i data-lucide="phone"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"></i>
+                        <input type="tel" id="client-phone"
+                            class="w-full bg-background border-border rounded-2xl pl-11 pr-4 py-4 text-sm focus:ring-2 focus:ring-primary outline-none transition-all shadow-sm"
+                            placeholder="Ex: +243 082 044 4758">
+                    </div>
+                </div>
+                <div class="md:col-span-2 space-y-2">
+                    <label class="text-sm font-semibold ml-1">Adresse ou Lieu d'intervention</label>
+                    <div class="relative">
+                        <i data-lucide="map-pin"
+                            class="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground"></i>
+                        <input type="text" id="client-address"
+                            class="w-full bg-background border-border rounded-2xl pl-11 pr-4 py-4 text-sm focus:ring-2 focus:ring-primary outline-none transition-all shadow-sm"
+                            placeholder="Ex: Gombe, Avenue de la justice N°...">
+                    </div>
+                </div>
+            </div>
+
+            <button id="submit-diagnostic-email"
+                class="w-full py-5 bg-primary text-primary-foreground rounded-2xl font-bold text-lg shadow-2xl shadow-primary/30 hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-3">
+                Envoyer ma demande par Email <i data-lucide="mail" class="h-5 w-5"></i>
+            </button>
+            <p class="text-[10px] text-center text-muted-foreground mt-4 italic">En cliquant, votre application de
+                messagerie s'ouvrira avec le récapitulatif de vos besoins.</p>
+        </section>
+        </div>
     </main>
 
     <footer class="border-t border-border py-20 bg-secondary/30">

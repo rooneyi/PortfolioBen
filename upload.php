@@ -8,6 +8,17 @@ $name = $_POST['name'] ?? '';
 $phone = $_POST['phone'] ?? '';
 $address = $_POST['address'] ?? '';
 
+// Sécurisation basique : n'autoriser que certains types de fichiers (whitelist)
+$maxSize = 10 * 1024 * 1024; // 10 Mo
+$allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'pdf'];
+$allowedMimeTypes = [
+    'image/jpeg',
+    'image/png',
+    'image/gif',
+    'image/webp',
+    'application/pdf',
+];
+
 $bodyFull = "--- INFORMATIONS CLIENT ---\n" .
     "Nom: $name\n" .
     "Téléphone: $phone\n" .
@@ -35,6 +46,40 @@ if (!empty($_FILES['attachments']['name'][0])) {
         $tmpName = $_FILES['attachments']['tmp_name'][$i];
         $fileName = basename($_FILES['attachments']['name'][$i]);
         $fileType = mime_content_type($tmpName) ?: 'application/octet-stream';
+
+        // Taille max
+        if (filesize($tmpName) > $maxSize) {
+            http_response_code(400);
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'error' => 'Un fichier est trop volumineux (max 10 Mo).',
+            ]);
+            exit;
+        }
+
+        // Vérification extension
+        $ext = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+        if (!in_array($ext, $allowedExtensions, true)) {
+            http_response_code(400);
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'error' => 'Type de fichier non autorisé.',
+            ]);
+            exit;
+        }
+
+        // Vérification type MIME
+        if (!in_array($fileType, $allowedMimeTypes, true)) {
+            http_response_code(400);
+            header('Content-Type: application/json');
+            echo json_encode([
+                'success' => false,
+                'error' => 'Type de fichier non autorisé (MIME).',
+            ]);
+            exit;
+        }
         $fileData = chunk_split(base64_encode(file_get_contents($tmpName)));
 
         $message .= "--{$boundary}\r\n";

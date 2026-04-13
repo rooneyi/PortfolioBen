@@ -133,6 +133,21 @@ const submitViaEmail = () => {
     const filesInput = document.getElementById('client-files');
     const files = filesInput?.files || [];
 
+    // Validation basique côté client des pièces jointes
+    const maxSize = 10 * 1024 * 1024; // 10 Mo
+    const allowedExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp', 'pdf'];
+    for (const file of files) {
+        const ext = file.name.split('.').pop().toLowerCase();
+        if (!allowedExtensions.includes(ext)) {
+            alert('Type de fichier non autorisé: ' + file.name + '\nFormats autorisés: images (JPG, PNG, etc.) et PDF.');
+            return;
+        }
+        if (file.size > maxSize) {
+            alert('Fichier trop volumineux: ' + file.name + '\nTaille maximale: 10 Mo par fichier.');
+            return;
+        }
+    }
+
     // Collect all selected options (ancienne sélection par cartes)
     const selectedOptions = [];
     document.querySelectorAll('.option-pill.active').forEach(pill => {

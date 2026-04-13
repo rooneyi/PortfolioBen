@@ -109,7 +109,7 @@ const generateQRCode = () => {
 FN:RC Service
 TEL:0820444758
 TEL:0993032484
-EMAIL:contact@rc-service.com
+EMAIL:rc-service@rc-service.tech
 END:VCARD`;
 
         new QRCode(qrContainer, {
@@ -130,6 +130,8 @@ const submitViaEmail = () => {
     const name = document.getElementById('client-name').value;
     const phone = document.getElementById('client-phone').value;
     const address = document.getElementById('client-address').value;
+    const filesInput = document.getElementById('client-files');
+    const files = filesInput?.files || [];
 
     // Collect all selected options (ancienne sélection par cartes)
     const selectedOptions = [];
@@ -177,9 +179,40 @@ ${detailedAnswers.length > 0 ? detailedAnswers.join('\n') : "Aucune réponse éc
 Merci de me recontacter rapidement.`;
 
     const subject = `Demande de Diagnostic - ${name}`;
-    const mailtoUrl = `mailto:contact@rc-service.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    window.location.href = mailtoUrl;
+    // Si des fichiers sont sélectionnés, on passe par le serveur (upload.php)
+    if (files.length > 0) {
+        const formData = new FormData();
+        formData.append('subject', subject);
+        formData.append('body', body);
+        formData.append('name', name);
+        formData.append('phone', phone);
+        formData.append('address', address);
+
+        Array.from(files).forEach((file) => {
+            formData.append('attachments[]', file, file.name);
+        });
+
+        fetch('upload.php', {
+            method: 'POST',
+            body: formData,
+        })
+            .then((res) => res.json().catch(() => ({})))
+            .then((data) => {
+                if (data && data.success) {
+                    alert('Votre demande avec fichiers a bien été envoyée.');
+                } else {
+                    alert("L'envoi des fichiers a échoué. Vous pouvez réessayer ou envoyer un email manuel.");
+                }
+            })
+            .catch(() => {
+                alert("Erreur réseau pendant l'envoi des fichiers. Essayez plus tard ou envoyez un email manuel.");
+            });
+    } else {
+        // Sinon, on garde le comportement mailto classique
+        const mailtoUrl = `mailto:rc-service@rc-service.tech?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailtoUrl;
+    }
 };
 
 // Event Listeners for Submission

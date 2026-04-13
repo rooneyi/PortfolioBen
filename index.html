@@ -430,6 +430,14 @@
                             placeholder="Ex: Gombe, Avenue de la justice N°...">
                     </div>
                 </div>
+                <div class="md:col-span-2 space-y-2">
+                    <label class="text-sm font-semibold ml-1">Pièces jointes (images / documents)</label>
+                    <input type="file" id="client-files" multiple
+                        class="w-full bg-background border-border rounded-2xl px-4 py-3 text-sm"
+                        accept="image/*,application/pdf,.doc,.docx,.xls,.xlsx,.zip">
+                    <p class="text-[10px] text-muted-foreground italic">Optionnel : vous pouvez joindre des photos ou
+                        documents liés au problème.</p>
+                </div>
             </div>
 
             <button id="submit-diagnostic-email"

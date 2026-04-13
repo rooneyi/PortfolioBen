@@ -1,0 +1,7 @@
+{
+  "host": "ftp.rc-service.tech",
+  "user": "rc-se2779875",
+  "password": "P@55word0408",
+  "port": 21,
+  "remoteRoot": "/"
+}
